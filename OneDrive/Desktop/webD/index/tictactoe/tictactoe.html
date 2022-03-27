@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .up {
+            border-top: 1px solid white;
+        }
+
+        .bottom {
+            border-bottom: 1px solid white;
+        }
+
+        .right {
+            border-right: 1px solid white;
+
+        }
+
+        .left {
+            border-left: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>THIS IS A  TIC-TAC-TOE GAME</h1>
+       
+        <p style="font-weight: bold;">Player 1 will go first with cross and player 2 will go next with circle</p>
+        <BR></BR>
+        <div class="one">
+            <span>
+                <button style=" padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;min-width: 60px; " onclick="fun()" id="r1c1" value="" class="up left "></button>
+            </span>
+            <span>
+                <button style="padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()" id="r1c2"class ="up"> </button>
+            </span>
+            <span>
+                <button style="padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()"
+                    id="r1c3"class="right up"></button>
+            </span>
+        </div>
+        <!-- <br> -->
+        <div class="two">
+            <span>
+                <button style=" padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()"
+                    id="r2c1" class="left "></button>
+            </span>
+            <span>
+                <button style="border: 2px solid rgb(0, 0, 0);padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()"
+                    id="r2c2"></button>
+            </span>
+            <span>
+                <button style="padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;width: 30px;text-overflow: ellipsis; " onclick="fun()"
+                    id="r2c3" class="right" ></button>
+            </span>
+        </div>
+        <!-- <br> -->
+        <div class="three">
+            <span>
+                <button style=" padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()"
+                    id="r3c1" class="left bottom"></button>
+            </span>
+            <span>
+                <button style="padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()"
+                    id="r3c2" class="bottom"></button>
+            </span>
+            <span>
+                <button style="padding: 40px;background-color: white;width: 30px;text-overflow: ellipsis;" onclick="fun()"
+                    id="r3c3" class="bottom right"></button>
+            </span>
+        </div>
+    </center>
+</body>
+<script>
+    var i = 1;
+    var k = [];
+    document.getElementById("r1c1").innerHTML="&nbsp";
+    document.getElementById("r1c2").innerHTML="&nbsp";
+    document.getElementById("r1c3").innerHTML="&nbsp";
+    document.getElementById("r2c1").innerHTML="&nbsp";
+    document.getElementById("r2c2").innerHTML="&nbsp";
+    document.getElementById("r2c3").innerHTML="&nbsp";
+    document.getElementById("r3c1").innerHTML="&nbsp";
+    document.getElementById("r3c2").innerHTML="&nbsp";
+    document.getElementById("r3c3").innerHTML="&nbsp";
+
+
+
+    const onclick = function fun() {
+        let f = 4;
+        let r = 0;
+        let z;
+       
+        if (k.length == 0) {
+            if (i % 2 == 1) {
+
+
+                this.innerHTML = "X";
+                i++;
+                k.push(this.id);
+
+
+            }
+
+
+
+        }
+        else {
+            for (z = 0; z < k.length; z++) {
+                if (this.id == k[z]) {
+                    r = 3;
+                }
+
+            }
+            if (r == 0) {
+                if (this.id != k[z]) {
+                    if (i % 2 == 1) {
+
+                        this.innerHTML = "X";
+                        i++;
+                        k.push(this.id);
+
+
+                    }
+                    else {
+
+                        this.innerHTML = "O";
+
+                        i++;
+                        k.push(this.id);
+
+                    }
+                }
+
+            }
+            function drp(){
+                document.getElementById("r1c1").innerHTML = "&nbsp";
+                document.getElementById("r1c2").innerHTML = "&nbsp";
+                document.getElementById("r1c3").innerHTML = "&nbsp";
+                document.getElementById("r2c1").innerHTML = "&nbsp";
+                document.getElementById("r2c2").innerHTML = "&nbsp";
+                document.getElementById("r2c3").innerHTML = "&nbsp";
+                document.getElementById("r3c1").innerHTML = "&nbsp";
+                document.getElementById("r3c2").innerHTML = "&nbsp";
+                document.getElementById("r3c3").innerHTML = "&nbsp";
+                
+
+            }
+            console.log(document.getElementById("r1c1").innerHTML);
+
+            if (document.getElementById("r1c1").innerHTML == 'X' && document.getElementById("r2c1").innerHTML == 'X' && document.getElementById("r3c1").innerHTML == 'X') {
+                f = 6;
+
+                alert("PLAYER 1 WINS \n to start a new matc press ok");
+                drp();
+
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c1").innerHTML == 'X' && document.getElementById("r2c2").innerHTML == 'X' && document.getElementById("r3c3").innerHTML == 'X') {
+                alert("PLAYER 1 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c2").innerHTML == 'X' && document.getElementById("r2c2").innerHTML == 'X' && document.getElementById("r3c2").innerHTML == 'X') {
+                alert("PLAYER 1 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c3").innerHTML == 'X' && document.getElementById("r2c3").innerHTML == 'X' && document.getElementById("r3c3").innerHTML == 'X') {
+                alert("PLAYER 1 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c1").innerHTML == 'X' && document.getElementById("r1c2").innerHTML == 'X' && document.getElementById("r1c3").innerHTML == 'X') {
+                alert("PLAYER 1 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r2c1").innerHTML == 'X' && document.getElementById("r2c2").innerHTML == 'X' && document.getElementById("r2c3").innerHTML == 'X') {
+                alert("PLAYER 1 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r3c1").innerHTML == 'X' && document.getElementById("r3c2").innerHTML == 'X' && document.getElementById("r3c3").innerHTML == 'X') {
+                alert("PLAYER 1 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+
+
+            //
+            if (document.getElementById("r1c1").innerHTML == 'O' && document.getElementById("r2c1").innerHTML == 'O' && document.getElementById("r3c1").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c1").innerHTML == 'O' && document.getElementById("r2c2").innerHTML == 'O' && document.getElementById("r3c3").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c2").innerHTML == 'O' && document.getElementById("r2c2").innerHTML == 'O' && document.getElementById("r3c2").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c3").innerHTML == 'X' && document.getElementById("r2c3").innerHTML == 'X' && document.getElementById("r3c3").innerHTML == 'X') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r1c1").innerHTML == 'O' && document.getElementById("r1c2").innerHTML == 'O' && document.getElementById("r1c3").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r2c1").innerHTML == 'O' && document.getElementById("r2c2").innerHTML == 'O' && document.getElementById("r2c3").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r3c1").innerHTML == 'O' && document.getElementById("r3c2").innerHTML == 'O' && document.getElementById("r3c3").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (f != 6 && i == 10) {
+                alert("DRAW")
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r3c1").innerHTML == 'O' && document.getElementById("r2c2").innerHTML == 'O' && document.getElementById("r1c3").innerHTML == 'O') {
+                alert("PLAYER 2 WINS \n to start a new matc press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+            if (document.getElementById("r3c1").innerHTML == 'X' && document.getElementById("r2c2").innerHTML == 'X' && document.getElementById("r1c3").innerHTML == 'X') {
+                alert("PLAYER 2 WINS \n To start a new match press ok")
+                f = 6;
+                drp();
+                i = 1;
+                k = [];
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+    }
+    document.getElementById('r1c1').onclick = onclick;
+    document.getElementById('r2c1').onclick = onclick;
+    document.getElementById('r3c1').onclick = onclick;
+    document.getElementById('r1c2').onclick = onclick;
+    document.getElementById('r1c3').onclick = onclick;
+    document.getElementById('r2c2').onclick = onclick;
+    document.getElementById('r3c3').onclick = onclick;
+    document.getElementById('r2c3').onclick = onclick;
+    document.getElementById('r1c2').onclick = onclick;
+    document.getElementById('r3c2').onclick = onclick;
+
+
+
+</script>
+
+</html>
